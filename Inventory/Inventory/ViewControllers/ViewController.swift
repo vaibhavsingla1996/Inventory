@@ -11,26 +11,40 @@ import FirebaseDatabase
 import FirebaseStorage
 class ViewController: UIViewController {
     
+    @IBOutlet weak var productsCollectionView: UICollectionView!
     var ref: DatabaseReference!
-    
+    var productsArray = [Product]()
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
     }
+    
+    func setUpCollectionView() {
+        productsCollectionView.dataSource = self
+        productsCollectionView.delegate = self
+        productsCollectionView.register(ProductCollectionViewCell.cellNib, forCellWithReuseIdentifier: ProductCollectionViewCell.cellIdentifier)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func addNewProduct(_ sender: UIButton) {
-        print("product added")
-        let product = Product.initWithValues(name: "asian paint", unitsInStock: 10)
-        ref.child(APIKey_Products).childByAutoId().setValue(product.getProductDictionary())
-        
+}
+
+extension ViewController :UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return productsArray.count
     }
-    
-    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.cellIdentifier, for: indexPath) as! ProductCollectionViewCell
+        cell.configCell(product: productsArray[indexPath.row], indexPath: indexPath)
+        return cell
+    }
+}
+
+extension ViewController: UICollectionViewDelegate{
     
 }
 

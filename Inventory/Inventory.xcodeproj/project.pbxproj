@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240D73DE20EBD3CA005B8A9A /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240D73DC20EBD3CA005B8A9A /* ProductCollectionViewCell.swift */; };
+		240D73DF20EBD3CA005B8A9A /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 240D73DD20EBD3CA005B8A9A /* ProductCollectionViewCell.xib */; };
 		24D827B620EA88AB00872951 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D827B520EA88AB00872951 /* AppDelegate.swift */; };
 		24D827B820EA88AB00872951 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D827B720EA88AB00872951 /* ViewController.swift */; };
 		24D827BB20EA88AB00872951 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24D827B920EA88AB00872951 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		240D73DC20EBD3CA005B8A9A /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		240D73DD20EBD3CA005B8A9A /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		24D827B220EA88AB00872951 /* Inventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24D827B520EA88AB00872951 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24D827B720EA88AB00872951 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		240D73DB20EBC704005B8A9A /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				24D827CA20EA88C400872951 /* Constants.swift */,
+			);
+			path = HelperClasses;
+			sourceTree = "<group>";
+		};
 		24D827A920EA88AB00872951 = {
 			isa = PBXGroup;
 			children = (
@@ -73,10 +85,11 @@
 		24D827B420EA88AB00872951 /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
-				24D827D220EA8E5100872951 /* Views */,
-				24D827CF20EA8D4700872951 /* ViewControllers */,
+				240D73DB20EBC704005B8A9A /* HelperClasses */,
 				24D827CE20EA88CD00872951 /* SupportingFiles */,
 				24D827C920EA88C400872951 /* Models */,
+				24D827CF20EA8D4700872951 /* ViewControllers */,
+				24D827D220EA8E5100872951 /* Views */,
 				24D827B520EA88AB00872951 /* AppDelegate.swift */,
 				24D827B920EA88AB00872951 /* Main.storyboard */,
 				24D827BC20EA88AC00872951 /* Assets.xcassets */,
@@ -98,7 +111,6 @@
 		24D827CE20EA88CD00872951 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				24D827CA20EA88C400872951 /* Constants.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -117,6 +129,8 @@
 			children = (
 				24D827D320EA8E8000872951 /* ProductDetailTableViewCell.swift */,
 				24D827D420EA8E8000872951 /* ProductDetailTableViewCell.xib */,
+				240D73DC20EBD3CA005B8A9A /* ProductCollectionViewCell.swift */,
+				240D73DD20EBD3CA005B8A9A /* ProductCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +214,7 @@
 			files = (
 				24D827D620EA8E8000872951 /* ProductDetailTableViewCell.xib in Resources */,
 				24D827C020EA88AC00872951 /* LaunchScreen.storyboard in Resources */,
+				240D73DF20EBD3CA005B8A9A /* ProductCollectionViewCell.xib in Resources */,
 				24D827C820EA88BB00872951 /* GoogleService-Info.plist in Resources */,
 				24D827BD20EA88AC00872951 /* Assets.xcassets in Resources */,
 				24D827BB20EA88AB00872951 /* Main.storyboard in Resources */,
@@ -219,6 +234,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/Gallery/Gallery.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -227,6 +244,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gallery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -262,6 +281,7 @@
 			files = (
 				24D827B820EA88AB00872951 /* ViewController.swift in Sources */,
 				24D827CD20EA88C400872951 /* Product.swift in Sources */,
+				240D73DE20EBD3CA005B8A9A /* ProductCollectionViewCell.swift in Sources */,
 				24D827D520EA8E8000872951 /* ProductDetailTableViewCell.swift in Sources */,
 				24D827D120EA8D6F00872951 /* AddProductViewController.swift in Sources */,
 				24D827B620EA88AB00872951 /* AppDelegate.swift in Sources */,

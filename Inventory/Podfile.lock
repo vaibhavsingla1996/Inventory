@@ -36,12 +36,18 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - SDWebImage (4.4.0):
+    - SDWebImage/Core (= 4.4.0)
+  - SDWebImage/Core (4.4.0)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
   - Gallery
+  - SDWebImage (~> 4.0)
+  - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -56,6 +62,8 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - SDWebImage
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   Firebase: e08fb0795f35707aeb1d8a715c731c45bdf6fd56
@@ -69,7 +77,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  SDWebImage: b534502786e43dde36dfcaee89356fe6df30e203
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: b8a45a2ca1184a3b20a53085c8288cb63ede9c33
+PODFILE CHECKSUM: be35dd37c32fdcf05f3ef7aa0ea1eed6ebed0fd6
 
 COCOAPODS: 1.5.3

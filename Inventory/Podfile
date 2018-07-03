@@ -10,5 +10,6 @@ target 'Inventory' do
     pod 'Firebase/Database'
     pod 'Firebase/Storage'
     pod 'Gallery'
-
+    pod 'SDWebImage', '~> 4.0'
+    pod 'SVProgressHUD'
 end
