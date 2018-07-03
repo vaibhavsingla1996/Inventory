@@ -15,6 +15,9 @@
 		24D827C820EA88BB00872951 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24D827C720EA88BB00872951 /* GoogleService-Info.plist */; };
 		24D827CC20EA88C400872951 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D827CA20EA88C400872951 /* Constants.swift */; };
 		24D827CD20EA88C400872951 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D827CB20EA88C400872951 /* Product.swift */; };
+		24D827D120EA8D6F00872951 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D827D020EA8D6F00872951 /* AddProductViewController.swift */; };
+		24D827D520EA8E8000872951 /* ProductDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D827D320EA8E8000872951 /* ProductDetailTableViewCell.swift */; };
+		24D827D620EA8E8000872951 /* ProductDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D827D420EA8E8000872951 /* ProductDetailTableViewCell.xib */; };
 		F9C64A9D7414133843E02E15 /* Pods_Inventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C597EDB5802C5BD3D683C56B /* Pods_Inventory.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		24D827C720EA88BB00872951 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		24D827CA20EA88C400872951 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		24D827CB20EA88C400872951 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		24D827D020EA8D6F00872951 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		24D827D320EA8E8000872951 /* ProductDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailTableViewCell.swift; sourceTree = "<group>"; };
+		24D827D420EA8E8000872951 /* ProductDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailTableViewCell.xib; sourceTree = "<group>"; };
 		4052A99D77A823D5A3E09F19 /* Pods-Inventory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inventory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Inventory/Pods-Inventory.debug.xcconfig"; sourceTree = "<group>"; };
 		8A5191F783B6B74BE8CBE867 /* Pods-Inventory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inventory.release.xcconfig"; path = "Pods/Target Support Files/Pods-Inventory/Pods-Inventory.release.xcconfig"; sourceTree = "<group>"; };
 		C597EDB5802C5BD3D683C56B /* Pods_Inventory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inventory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,10 +73,11 @@
 		24D827B420EA88AB00872951 /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
+				24D827D220EA8E5100872951 /* Views */,
+				24D827CF20EA8D4700872951 /* ViewControllers */,
 				24D827CE20EA88CD00872951 /* SupportingFiles */,
 				24D827C920EA88C400872951 /* Models */,
 				24D827B520EA88AB00872951 /* AppDelegate.swift */,
-				24D827B720EA88AB00872951 /* ViewController.swift */,
 				24D827B920EA88AB00872951 /* Main.storyboard */,
 				24D827BC20EA88AC00872951 /* Assets.xcassets */,
 				24D827BE20EA88AC00872951 /* LaunchScreen.storyboard */,
@@ -94,6 +101,24 @@
 				24D827CA20EA88C400872951 /* Constants.swift */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		24D827CF20EA8D4700872951 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				24D827B720EA88AB00872951 /* ViewController.swift */,
+				24D827D020EA8D6F00872951 /* AddProductViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		24D827D220EA8E5100872951 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				24D827D320EA8E8000872951 /* ProductDetailTableViewCell.swift */,
+				24D827D420EA8E8000872951 /* ProductDetailTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CFCFF5F489421795AA2A96F4 /* Frameworks */ = {
@@ -173,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24D827D620EA8E8000872951 /* ProductDetailTableViewCell.xib in Resources */,
 				24D827C020EA88AC00872951 /* LaunchScreen.storyboard in Resources */,
 				24D827C820EA88BB00872951 /* GoogleService-Info.plist in Resources */,
 				24D827BD20EA88AC00872951 /* Assets.xcassets in Resources */,
@@ -236,6 +262,8 @@
 			files = (
 				24D827B820EA88AB00872951 /* ViewController.swift in Sources */,
 				24D827CD20EA88C400872951 /* Product.swift in Sources */,
+				24D827D520EA8E8000872951 /* ProductDetailTableViewCell.swift in Sources */,
+				24D827D120EA8D6F00872951 /* AddProductViewController.swift in Sources */,
 				24D827B620EA88AB00872951 /* AppDelegate.swift in Sources */,
 				24D827CC20EA88C400872951 /* Constants.swift in Sources */,
 			);

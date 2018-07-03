@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseStorage
 class ViewController: UIViewController {
     
     var ref: DatabaseReference!
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
         ref.child(APIKey_Products).childByAutoId().setValue(product.getProductDictionary())
         
     }
+    
     
     
 }
