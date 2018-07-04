@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		240D73DE20EBD3CA005B8A9A /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240D73DC20EBD3CA005B8A9A /* ProductCollectionViewCell.swift */; };
 		240D73DF20EBD3CA005B8A9A /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 240D73DD20EBD3CA005B8A9A /* ProductCollectionViewCell.xib */; };
+		249AA3A420ED2BBF0026531B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249AA3A320ED2BBF0026531B /* Enums.swift */; };
+		249AA3A620ED2E9D0026531B /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249AA3A520ED2E9D0026531B /* CommonUtils.swift */; };
 		24D827B620EA88AB00872951 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D827B520EA88AB00872951 /* AppDelegate.swift */; };
 		24D827B820EA88AB00872951 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D827B720EA88AB00872951 /* ViewController.swift */; };
 		24D827BB20EA88AB00872951 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24D827B920EA88AB00872951 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* Begin PBXFileReference section */
 		240D73DC20EBD3CA005B8A9A /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		240D73DD20EBD3CA005B8A9A /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		249AA3A320ED2BBF0026531B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		249AA3A520ED2E9D0026531B /* CommonUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		24D827B220EA88AB00872951 /* Inventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24D827B520EA88AB00872951 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24D827B720EA88AB00872951 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				24D827CA20EA88C400872951 /* Constants.swift */,
+				249AA3A320ED2BBF0026531B /* Enums.swift */,
+				249AA3A520ED2E9D0026531B /* CommonUtils.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -285,6 +291,8 @@
 				24D827D520EA8E8000872951 /* ProductDetailTableViewCell.swift in Sources */,
 				24D827D120EA8D6F00872951 /* AddProductViewController.swift in Sources */,
 				24D827B620EA88AB00872951 /* AppDelegate.swift in Sources */,
+				249AA3A420ED2BBF0026531B /* Enums.swift in Sources */,
+				249AA3A620ED2E9D0026531B /* CommonUtils.swift in Sources */,
 				24D827CC20EA88C400872951 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

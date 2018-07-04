@@ -31,6 +31,19 @@ class Product{
         product.imageURL = imageURL
         return product
     }
+    static func initWithDictionary(dict: [String : Any])-> Product {
+        let product = Product()
+        if let productName = dict[APIKey_ProductName] as? String{
+             product.name = productName
+        }
+        if let productImageURL = dict[APIKey_ProductImageUrl] as? String{
+            product.imageURL = productImageURL
+        }
+        if let productStock = dict[APIKey_ProductStock] as? Int{
+            product.unitsInStock = productStock
+        }
+        return product
+    }
     func getProductDictionary()-> [String:Any]{
         var dict = Dictionary<String,Any>()
         dict[APIKey_ProductName] = self.name

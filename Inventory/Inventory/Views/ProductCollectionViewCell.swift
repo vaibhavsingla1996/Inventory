@@ -26,16 +26,20 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        bgView.layer.cornerRadius = 10
         // Initialization code
         
     }
 
     func configCell(product: Product, indexPath: IndexPath){
+        
         cellProduct = product
         cellIndexPath = indexPath
         productNameLabel.text = product.name
-        if let url = URL(string: product.imageURL){
+        if let url = URL(string: product.imageURL), !product.imageURL.isEmpty{
             productImageView.sd_setImage(with: url, completed: nil)
+        }else{
+            productImageView.image = #imageLiteral(resourceName: "placeholderImage")
         }
     }
 }

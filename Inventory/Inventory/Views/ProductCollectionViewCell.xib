@@ -19,10 +19,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="294" height="194"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmg-cf-2Cf" userLabel="Background View">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmg-cf-2Cf" userLabel="Background View">
                         <rect key="frame" x="0.0" y="0.0" width="294" height="194"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9S2-fh-Ehw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="9S2-fh-Ehw">
                                 <rect key="frame" x="0.0" y="0.0" width="294" height="173"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iz3-05-wch">
@@ -31,11 +31,11 @@
                                     <constraint firstAttribute="height" constant="21" id="fzT-Fw-GeO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9S2-fh-Ehw" firstAttribute="leading" secondItem="kmg-cf-2Cf" secondAttribute="leading" id="8B6-bT-5O4"/>
                             <constraint firstAttribute="trailing" secondItem="9S2-fh-Ehw" secondAttribute="trailing" id="9rp-SI-xPs"/>
@@ -64,4 +64,7 @@
             <point key="canvasLocation" x="156" y="126"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="placeholderImage" width="640" height="480"/>
+    </resources>
 </document>

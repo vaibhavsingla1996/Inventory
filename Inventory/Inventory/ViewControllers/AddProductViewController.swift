@@ -10,6 +10,7 @@ import UIKit
 import Gallery
 import FirebaseDatabase
 import FirebaseStorage
+import SVProgressHUD
 
 class AddProductViewController: UIViewController {
 
@@ -17,10 +18,11 @@ class AddProductViewController: UIViewController {
     @IBOutlet weak var detailsTableView: UITableView!
     let product = Product()
     var tapGesture: UITapGestureRecognizer?
-    
+    let productTableCellType: [AddNewProductEnum] = [.name, .stock]
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
+        
     }
 
     func configView(){
@@ -46,32 +48,67 @@ class AddProductViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = saveButton
     }
     @objc func saveButtonTapped(){
-        //
-        print("saved")
-        if let productImage = productImageView.image{
-            product.image = productImage
-        }
         
-        // sendImage and Get URL
-        let timeStamp = NSDate().timeIntervalSince1970
-        let imageName: String = "\(Int(timeStamp)).png"
-        let storageRef = Storage.storage().reference().child(imageName)
-        if let uploadData = UIImagePNGRepresentation(product.image){
-            storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
-                if error != nil{
-                    print("error \(error!)")
-                    
-                }
-                storageRef.downloadURL(completion: { (url, error) in
-                    self.product.imageURL = url?.absoluteString ?? ""
-                    let ref = Database.database().reference()
-                    ref.child(APIKey_Products ).childByAutoId().setValue(self.product.getProductDictionary())
-                })
-                
+        if product.name.isEmpty{
+            CommonUtils.alertWithOkButton(title: "", message: "Name "+kError_FieldEmpty, viewController: self) { (bool) in
+                // if ok pressed worl here
             }
         }else{
-            print("cannot convert it to data")
+            SVProgressHUD.show(withStatus: "Saving Product")
+            SVProgressHUD.setDefaultMaskType(.clear)
+            if let productImage = productImageView.image{
+                product.image = productImage
+            }
+            // sendImage and Get URL
+            let timeStamp = NSDate().timeIntervalSince1970
+            let imageName: String = "\(Int(timeStamp)).png"
+            let storageRef = Storage.storage().reference().child(imageName)
+            if let uploadData = UIImagePNGRepresentation(product.image){
+                storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+                    if error != nil{
+                        print("error \(error!)")
+                        SVProgressHUD.dismiss()
+                        CommonUtils.alertWithOkButton(title: kError_SavingProduct, message: error?.localizedDescription, viewController: self, sucessAction: { (bool) in
+                            self.navigationController?.popViewController(animated: true)
+                            
+                        })
+                        return
+                    }else{
+                        storageRef.downloadURL(completion: { (url, error) in
+                            if error != nil{
+                                SVProgressHUD.dismiss()
+                                CommonUtils.alertWithOkButton(title: kError_SavingImage, message: error?.localizedDescription, viewController: self, sucessAction: { (bool) in
+                                    self.navigationController?.popViewController(animated: true)
+                                    
+                                })
+                            }
+                            self.product.imageURL = url?.absoluteString ?? ""
+                            let ref = Database.database().reference()
+                            ref.child(APIKey_Products ).childByAutoId().setValue(self.product.getProductDictionary())
+                            SVProgressHUD.dismiss()
+                            CommonUtils.alertWithOkButton(title: "Congrats", message: "Your item is saved successfully.", viewController: self, sucessAction: { (bool) in
+                                self.navigationController?.popViewController(animated: true)
+                                
+                            })
+                        })
+                    }
+                }
+                if !CommonUtils.isInternetAvailable(){
+                    SVProgressHUD.dismiss()
+                    CommonUtils.alertWithOkButton(title: kError_Network, message: kError_Internet + "\n" + kDataIsSavedLocally, viewController: self) { (bool) in
+                        if bool{
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    }
+                }
+            }else{
+                SVProgressHUD.dismiss()
+                print("cannot convert it to data")
+            }
+            
+            
         }
+
     }
     
     
@@ -90,37 +127,24 @@ class AddProductViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+// MARK: - TableViewDataSource
 extension AddProductViewController: UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return productTableCellType.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kReuseIdentifer_ProductDetailTableCell, for: indexPath) as! ProductDetailTableViewCell
         cell.delegate = self
-        switch indexPath.row {
-        case 0:
+        switch productTableCellType[indexPath.row] {
+        case .name:
             cell.cellConfig(name: "Name", indexPath: indexPath)
-        case 1:
+        case .stock:
             cell.cellConfig(name: "Quantity", indexPath: indexPath)
             cell.dataTextField.keyboardType = .numberPad
-        default:
-            // default code
-            cell.cellConfig(name: "units in stock", indexPath: indexPath)
         }
         return cell
     }
@@ -128,6 +152,8 @@ extension AddProductViewController: UITableViewDataSource{
         return UITableViewAutomaticDimension
     }
 }
+
+// MARK: - TableViewDelegate
 
 extension AddProductViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -164,16 +190,15 @@ extension AddProductViewController: GalleryControllerDelegate{
     }
     
 }
+
+// MARK: - ProductDetailCellDelegate
 extension AddProductViewController: ProductdetailDelegate{
     func textFieldTextChanged(updatedText: String, cellIndexPath: IndexPath) {
-        switch cellIndexPath.row {
-        case 0:
+        switch productTableCellType[cellIndexPath.row] {
+        case .name:
             product.name = updatedText
-        case 1:
+        case .stock:
             product.unitsInStock = Int(updatedText) ?? 0
-        default:
-            print("new section")
-            // default code
             
         }
     }
