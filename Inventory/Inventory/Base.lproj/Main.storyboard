@@ -111,6 +111,7 @@
                         <outlet property="imageBgView" destination="FH7-zi-LjW" id="Emb-WU-hz4"/>
                         <outlet property="productDetailTableView" destination="ors-gt-rGX" id="mfa-Uf-ToT"/>
                         <outlet property="productImageView" destination="KiL-sv-dnh" id="pFC-bM-H0e"/>
+                        <segue destination="fCM-Ti-ENy" kind="show" identifier="editProduct" id="8WL-e2-QYr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONB-HY-7dl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -191,4 +192,7 @@
     <resources>
         <image name="placeholderImage" width="640" height="480"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="8WL-e2-QYr"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -43,6 +43,7 @@ class ViewController: UIViewController {
     }
     
     func getProductsFromFirebase(){
+        print(ref.child(APIKey_Products).childByAutoId())
         SVProgressHUD.show(withStatus: "Fetching data")
         SVProgressHUD.setDefaultMaskType(.clear)
         ref.child(APIKey_Products).observe(.value) { (snapshot) in
@@ -52,7 +53,9 @@ class ViewController: UIViewController {
             for product in productAutoIdDictionary.enumerated(){
                 
                 if let productDictionary = product.element.value as? [String : Any]{
-                    tempProductArray.append(Product.initWithDictionary(dict: productDictionary))
+                    let newProduct = Product.initWithDictionary(dict: productDictionary)
+                    newProduct.productAutoId = product.element.key
+                    tempProductArray.append(newProduct)
                     
                 }
             }

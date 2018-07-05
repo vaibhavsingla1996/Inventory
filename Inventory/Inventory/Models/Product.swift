@@ -14,7 +14,7 @@ class Product{
     var unitsInStock: Int
     var image: UIImage
     var imageURL: String
-    
+    var productAutoId: String?
     
     init(){
         name = ""

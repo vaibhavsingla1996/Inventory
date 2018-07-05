@@ -22,7 +22,7 @@ class ProductDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpViews()
-        // Do any additional setup after loading the view.
+        self.setUpBarButtons()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +38,14 @@ class ProductDetailViewController: UIViewController {
         }
         
         
+    }
+    func setUpBarButtons(){
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
+        self.navigationItem.rightBarButtonItem = editButton
+    }
+    
+    @objc func editButtonTapped(){
+        self.performSegue(withIdentifier: "editProduct", sender: nil)
     }
     func setUpViews(){
         
@@ -55,16 +63,16 @@ class ProductDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "editProduct"{
+            let destinationController = segue.destination as! AddProductViewController
+            destinationController.isEditingMode = true
+            destinationController.product = self.selectedProduct ?? Product()
+        }
     }
-    */
 
 }
 

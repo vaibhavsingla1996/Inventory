@@ -36,10 +36,10 @@ class ProductDetailTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func cellConfig(name: String, indexPath: IndexPath) {
+    func cellConfig(name: String, indexPath: IndexPath, textFieldData: String) {
         nameLabel.text = name
         cellIndexPath = indexPath
-        
+        dataTextField.text = textFieldData
     }
 }
 extension ProductDetailTableViewCell: UITextFieldDelegate{
