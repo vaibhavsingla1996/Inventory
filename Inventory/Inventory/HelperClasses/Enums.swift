@@ -12,3 +12,7 @@ enum AddNewProductEnum: Int{
     case name = 0
     case stock = 1
 }
+enum ProductDetailEnum: Int{
+    case name = 0
+    case stock = 1
+}

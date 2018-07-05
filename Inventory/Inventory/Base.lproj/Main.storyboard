@@ -57,11 +57,65 @@
                     </navigationItem>
                     <connections>
                         <outlet property="productsCollectionView" destination="7Qu-oV-ED8" id="u6r-bI-ALE"/>
+                        <segue destination="dxF-tK-2SP" kind="show" identifier="showProduct" id="WN1-22-6ex"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1151" y="-665"/>
+        </scene>
+        <!--Product Detail View Controller-->
+        <scene sceneID="bKD-Mt-LhJ">
+            <objects>
+                <viewController id="dxF-tK-2SP" customClass="ProductDetailViewController" customModule="Inventory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JGQ-9h-gh1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FH7-zi-LjW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="250"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="KiL-sv-dnh">
+                                        <rect key="frame" x="87.5" y="25" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="E4x-7E-DmN"/>
+                                            <constraint firstAttribute="height" constant="200" id="PIh-d3-2lJ"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="KiL-sv-dnh" firstAttribute="centerY" secondItem="FH7-zi-LjW" secondAttribute="centerY" id="BP6-ph-dMv"/>
+                                    <constraint firstItem="KiL-sv-dnh" firstAttribute="centerX" secondItem="FH7-zi-LjW" secondAttribute="centerX" id="M9m-fu-OlL"/>
+                                    <constraint firstAttribute="height" constant="250" id="lVf-pb-oh5"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ors-gt-rGX">
+                                <rect key="frame" x="0.0" y="314" width="375" height="353"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="41K-w4-F7l" firstAttribute="trailing" secondItem="ors-gt-rGX" secondAttribute="trailing" id="15c-QR-sUo"/>
+                            <constraint firstItem="FH7-zi-LjW" firstAttribute="leading" secondItem="41K-w4-F7l" secondAttribute="leading" id="Eox-Uj-hkz"/>
+                            <constraint firstItem="FH7-zi-LjW" firstAttribute="top" secondItem="41K-w4-F7l" secondAttribute="top" id="ZWi-yW-bmj"/>
+                            <constraint firstItem="41K-w4-F7l" firstAttribute="bottom" secondItem="ors-gt-rGX" secondAttribute="bottom" id="mTH-uH-FkT"/>
+                            <constraint firstItem="41K-w4-F7l" firstAttribute="trailing" secondItem="FH7-zi-LjW" secondAttribute="trailing" id="pMW-eR-Iiz"/>
+                            <constraint firstItem="ors-gt-rGX" firstAttribute="leading" secondItem="41K-w4-F7l" secondAttribute="leading" id="qBS-bP-m2x"/>
+                            <constraint firstItem="ors-gt-rGX" firstAttribute="top" secondItem="FH7-zi-LjW" secondAttribute="bottom" id="yC5-lJ-8hE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="41K-w4-F7l"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageBgView" destination="FH7-zi-LjW" id="Emb-WU-hz4"/>
+                        <outlet property="productDetailTableView" destination="ors-gt-rGX" id="mfa-Uf-ToT"/>
+                        <outlet property="productImageView" destination="KiL-sv-dnh" id="pFC-bM-H0e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ONB-HY-7dl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1150" y="79"/>
         </scene>
         <!--Add Product View Controller-->
         <scene sceneID="VmD-Ws-bRh">
@@ -134,4 +188,7 @@
             <point key="canvasLocation" x="344.80000000000001" y="-665.21739130434787"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholderImage" width="640" height="480"/>
+    </resources>
 </document>

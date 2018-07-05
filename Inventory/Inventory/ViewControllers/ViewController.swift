@@ -64,9 +64,18 @@ class ViewController: UIViewController {
             SVProgressHUD.dismiss()
         }
     }
-    
+    // MARK: - Navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showProduct"{
+            
+            if let indexPath = sender as? IndexPath, let destinationController = segue.destination as? ProductDetailViewController{
+                destinationController.selectedProduct = productsArray[indexPath.row]
+            }
+        }
+     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension ViewController :UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return productsArray.count
@@ -79,12 +88,17 @@ extension ViewController :UICollectionViewDataSource{
     
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension ViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let numberOfProductsInRow = 2
         let itemWidth = (CommonUtils.screenWidth() - 60) / CGFloat(numberOfProductsInRow)
         return CGSize(width: itemWidth, height: itemWidth)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showProduct", sender: indexPath)
     }
 }
 

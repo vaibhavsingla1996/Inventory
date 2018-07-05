@@ -14,7 +14,6 @@ let APIKey_ProductStock = "productStock"
 let APIKey_ProductImage = "productImage"
 let APIKey_ProductImageUrl = "productUrl"
 
-let kReuseIdentifer_ProductDetailTableCell = "ProductDetailTableCell"
 
 
 // Errors

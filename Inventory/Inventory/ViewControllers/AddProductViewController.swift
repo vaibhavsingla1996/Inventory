@@ -38,7 +38,7 @@ class AddProductViewController: UIViewController {
         // table view configuration
         detailsTableView.dataSource = self
         detailsTableView.delegate = self
-        detailsTableView.register(UINib.init(nibName: String(describing: ProductDetailTableViewCell.self), bundle: nil), forCellReuseIdentifier: kReuseIdentifer_ProductDetailTableCell)
+        detailsTableView.register(ProductDetailTableViewCell.cellNib, forCellReuseIdentifier: ProductDetailTableViewCell.cellIdentifier)
         detailsTableView.estimatedRowHeight = UITableViewAutomaticDimension
         detailsTableView.rowHeight = UITableViewAutomaticDimension
         detailsTableView.tableFooterView = UIView()
@@ -137,7 +137,7 @@ extension AddProductViewController: UITableViewDataSource{
         return productTableCellType.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: kReuseIdentifer_ProductDetailTableCell, for: indexPath) as! ProductDetailTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailTableViewCell.cellIdentifier, for: indexPath) as! ProductDetailTableViewCell
         cell.delegate = self
         switch productTableCellType[indexPath.row] {
         case .name:

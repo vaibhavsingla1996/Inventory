@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import UIKit
+
+extension UIView{
+    func cornerRadius(_ value: CGFloat = 10){
+        self.clipsToBounds = true
+        self.layer.cornerRadius = value
+    }
+}

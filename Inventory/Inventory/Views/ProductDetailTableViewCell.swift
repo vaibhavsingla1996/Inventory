@@ -16,6 +16,14 @@ class ProductDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dataTextField: UITextField!
     weak var delegate: ProductdetailDelegate?
+    
+    
+    class var cellNib: UINib{
+        return UINib.init(nibName: String.init(describing: ProductDetailTableViewCell.self), bundle: nil)
+    }
+    class var cellIdentifier: String{
+        return String.init(describing: ProductDetailTableViewCell.self)
+    }    
     var cellIndexPath: IndexPath?
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -22,6 +22,10 @@
 		24D827D120EA8D6F00872951 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D827D020EA8D6F00872951 /* AddProductViewController.swift */; };
 		24D827D520EA8E8000872951 /* ProductDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D827D320EA8E8000872951 /* ProductDetailTableViewCell.swift */; };
 		24D827D620EA8E8000872951 /* ProductDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D827D420EA8E8000872951 /* ProductDetailTableViewCell.xib */; };
+		DE06082220EDF2BE005D2BBB /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06082120EDF2BE005D2BBB /* ProductDetailViewController.swift */; };
+		DE06082420EDF467005D2BBB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06082320EDF467005D2BBB /* Extensions.swift */; };
+		DE06082720EDF7BC005D2BBB /* ShowProductDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06082520EDF7BC005D2BBB /* ShowProductDetailsTableViewCell.swift */; };
+		DE06082820EDF7BC005D2BBB /* ShowProductDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE06082620EDF7BC005D2BBB /* ShowProductDetailsTableViewCell.xib */; };
 		F9C64A9D7414133843E02E15 /* Pods_Inventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C597EDB5802C5BD3D683C56B /* Pods_Inventory.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +50,10 @@
 		4052A99D77A823D5A3E09F19 /* Pods-Inventory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inventory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Inventory/Pods-Inventory.debug.xcconfig"; sourceTree = "<group>"; };
 		8A5191F783B6B74BE8CBE867 /* Pods-Inventory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inventory.release.xcconfig"; path = "Pods/Target Support Files/Pods-Inventory/Pods-Inventory.release.xcconfig"; sourceTree = "<group>"; };
 		C597EDB5802C5BD3D683C56B /* Pods_Inventory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inventory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE06082120EDF2BE005D2BBB /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		DE06082320EDF467005D2BBB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DE06082520EDF7BC005D2BBB /* ShowProductDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProductDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		DE06082620EDF7BC005D2BBB /* ShowProductDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowProductDetailsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,7 @@
 				24D827CA20EA88C400872951 /* Constants.swift */,
 				249AA3A320ED2BBF0026531B /* Enums.swift */,
 				249AA3A520ED2E9D0026531B /* CommonUtils.swift */,
+				DE06082320EDF467005D2BBB /* Extensions.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -126,6 +135,7 @@
 			children = (
 				24D827B720EA88AB00872951 /* ViewController.swift */,
 				24D827D020EA8D6F00872951 /* AddProductViewController.swift */,
+				DE06082120EDF2BE005D2BBB /* ProductDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -137,6 +147,8 @@
 				24D827D420EA8E8000872951 /* ProductDetailTableViewCell.xib */,
 				240D73DC20EBD3CA005B8A9A /* ProductCollectionViewCell.swift */,
 				240D73DD20EBD3CA005B8A9A /* ProductCollectionViewCell.xib */,
+				DE06082520EDF7BC005D2BBB /* ShowProductDetailsTableViewCell.swift */,
+				DE06082620EDF7BC005D2BBB /* ShowProductDetailsTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,6 +234,7 @@
 				24D827C020EA88AC00872951 /* LaunchScreen.storyboard in Resources */,
 				240D73DF20EBD3CA005B8A9A /* ProductCollectionViewCell.xib in Resources */,
 				24D827C820EA88BB00872951 /* GoogleService-Info.plist in Resources */,
+				DE06082820EDF7BC005D2BBB /* ShowProductDetailsTableViewCell.xib in Resources */,
 				24D827BD20EA88AC00872951 /* Assets.xcassets in Resources */,
 				24D827BB20EA88AB00872951 /* Main.storyboard in Resources */,
 			);
@@ -292,7 +305,10 @@
 				24D827D120EA8D6F00872951 /* AddProductViewController.swift in Sources */,
 				24D827B620EA88AB00872951 /* AppDelegate.swift in Sources */,
 				249AA3A420ED2BBF0026531B /* Enums.swift in Sources */,
+				DE06082720EDF7BC005D2BBB /* ShowProductDetailsTableViewCell.swift in Sources */,
+				DE06082220EDF2BE005D2BBB /* ProductDetailViewController.swift in Sources */,
 				249AA3A620ED2E9D0026531B /* CommonUtils.swift in Sources */,
+				DE06082420EDF467005D2BBB /* Extensions.swift in Sources */,
 				24D827CC20EA88C400872951 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
