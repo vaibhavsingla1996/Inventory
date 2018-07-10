@@ -52,12 +52,26 @@ class AddProductViewController: UIViewController {
         
         // add bar button
         let saveButton = UIBarButtonItem.init(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
-        self.navigationItem.rightBarButtonItem = saveButton
+        if isEditingMode{
+            let deleteButton = UIBarButtonItem(image: #imageLiteral(resourceName: "garbage"), style: .done, target: self, action: #selector(deleteButtonTapped))
+            self.navigationItem.rightBarButtonItems = [saveButton,deleteButton]
+        }else {
+            self.navigationItem.rightBarButtonItem = saveButton
+        }
     }
     @objc func saveButtonTapped(){
         isEditingMode ?  updatingOldProduct() : savingNewProduct()
     }
-    
+    @objc func deleteButtonTapped(){
+        
+        let alertController = UIAlertController(title: "Delete \(self.product.name)", message: "Are you sure you want to delete this product", preferredStyle: .alert)
+        alertController.addAction(.init(title: "Delete", style: .destructive, handler: { (action) in
+            // deleted code
+            self.deleteProduct()
+        }))
+        alertController.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     @objc func imageTapped(){
         Config.tabsToShow = [.imageTab, .cameraTab]
@@ -70,6 +84,33 @@ class AddProductViewController: UIViewController {
         
     }
     
+    func deleteProduct(){
+        
+        SVProgressHUD.show(withStatus: "Deleting Product")
+        SVProgressHUD.setDefaultMaskType(.clear)
+        guard let key = self.product.productAutoId else{
+            CommonUtils.alertWithOkButton(title: "Sorry", message: "Cannot delete this product", viewController: self) { (bool) in
+                // code if success
+                SVProgressHUD.dismiss()
+            }
+            return
+        }
+        let ref = Database.database().reference().child(APIKey_Products).child(key)
+        ref.removeValue { (error, ref) in
+            if error != nil{
+                CommonUtils.alertWithOkButton(title: "Sorry", message: "Cannot delete this product", viewController: self) { (bool) in
+                    // code if success
+                    SVProgressHUD.dismiss()
+                }
+                return
+            }
+            CommonUtils.alertWithOkButton(title: "Congrats", message: "Product has been Successfully deleted", viewController: self) { (bool) in
+                // code if success
+                SVProgressHUD.dismiss()
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+    }
     func savingNewProduct(){
         if product.name.isEmpty{
             CommonUtils.alertWithOkButton(title: "", message: "Name "+kError_FieldEmpty, viewController: self) { (bool) in

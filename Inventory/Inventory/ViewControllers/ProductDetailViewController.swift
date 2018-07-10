@@ -27,13 +27,14 @@ class ProductDetailViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         if CommonUtils.isInternetAvailable(){
+            productDetailTableView.reloadData()
             guard let product = selectedProduct else{ return }
             if !product.imageURL.isEmpty, let url = URL(string: product.imageURL){
                 productImageView.sd_setImage(with: url, completed: nil)
             }
         }else{
             CommonUtils.alertWithOkButton(title: kError_Network, message: kError_Internet+"\n Cannot load Image", viewController: self) { (bool) in
-                // work if ok Pressed
+                self.productImageView.image = #imageLiteral(resourceName: "placeholderImage")
             }
         }
         
